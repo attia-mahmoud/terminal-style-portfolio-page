@@ -21,20 +21,16 @@ app.addEventListener("click", function(event){
 
 
 async function open_terminal(){
-  createText("Welcome");
-  await delay(700);
-  createText("Starting the server...");
-  await delay(1500);
-  createText("You can run several commands:");
- 
-  createCode("about me", "Who am i and what do i do.");
-  createCode("all", "See all commands.");
-  createCode("social -a", "All my social networks.");
-
+  createText("Initializing system...");
+  await delay(1000);
+  createText("Loading user profile...");
+  await delay(800);
+  createText("Welcome!");
   await delay(500);
+  createText("Type 'help' to see available commands.");
+  await delay(300);
   new_line();
 }
-
 
 function new_line(){
   
@@ -44,7 +40,7 @@ function new_line(){
   p.setAttribute("class", "path")
   p.textContent = "# user";
   span1.textContent = " in";
-  span2.textContent = " ~/heber-leonard";
+  span2.textContent = " ~/mahmoud-attia";
   p.appendChild(span1);
   p.appendChild(span2);
   app.appendChild(p);
@@ -66,35 +62,34 @@ function removeInput(){
 }
 
 async function getInputValue(){
-  
   const value = document.querySelector("input").value;
-  if(value === "all"){
+  
+  if(value === "help"){
     trueValue(value);
     
-    createCode("projects", "My github page with my projects. Follow me there ;)");
-    createCode("about me", "Who am i and what do i do.");
-    createCode("social -a", "All my social networks.");
-    createCode("clear", "Clean the terminal.");
+    createCode("projects", "my github page with my projects.");
+    createCode("about me", "who am i?");
+    createCode("social -a", "all my socials.");
+    createCode("clear", "clean the terminal.");
     
   }
   else if(value === "projects"){
     trueValue(value);
-    createText("<a href='https://github.com/heberleonard2' target='_blank'><i class='fab fa-github white'></i> github.com/heberleonard2</a>")
+    createText("<a href='https://github.com/attia-mahmoud' target='_blank'><i class='fab fa-github white'></i> github.com/attia-mahmoud</a>")
   }
   else if(value === "about me"){
     trueValue(value);
-    createText("Oi, meu nome é Héber ;)")
-    createText("Desenvolvedor atualmente focado em todo o ecossistema Javascript. Utilizando principalmente a stack <span class='blue'>Node, React e React Native </span>por permitir criar aplicações de forma descomplicada e produtiva.")
+    createText("Hi, my name is Mahmoud Attia.")
+    createText("I'm a software developer with interests in machine learning and cybersecurity.")
   }
   else if(value === "social -a"){
     trueValue(value);
-    createText("<a href='https://github.com/heberleonard2' target='_blank'><i class='fab fa-github white'></i> github.com/heberleonard2</a>")
-    createText("<a href='https://www.linkedin.com/in/heber-leonard/' target='_blank'><i class='fab fa-linkedin-in white'></i> linkedin.com/in/heber-leonard</a>")
-    createText("<a href='https://www.instagram.com/heber_leonard/' target='_blank'><i class='fab fa-instagram white'></i> instagram.com/heber_leonard</a>")
+    createText("<a href='https://github.com/attia-mahmoud' target='_blank'><i class='fab fa-github white'></i> github.com/attia-mahmoud</a>")
+    createText("<a href='https://www.linkedin.com/in/attiamahmoud/' target='_blank'><i class='fab fa-linkedin-in white'></i> linkedin.com/in/attiamahmoud</a>")
   }
   else if(value === "social"){
     trueValue(value);
-    createText("Didn't you mean: social -a?")
+    createText("Did you mean: social -a?")
   }
   
   else if(value === "clear"){
